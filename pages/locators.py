@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 class PageLinks():
-    #PRODUCT_PAGE = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
     PRODUCT_PAGE = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
 
 class MainPageLocators():
