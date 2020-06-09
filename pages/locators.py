@@ -22,3 +22,7 @@ class ProductPageLocators():
 class BasketPageLocators():
     PRODUCT_ADD_TO_BASKET_SUCCESS = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon.alert-success:nth-child(1) strong")
     BASKET_COST = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon.alert-info.fade.in strong")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
