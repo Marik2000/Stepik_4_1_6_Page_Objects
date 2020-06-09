@@ -15,7 +15,7 @@ class ProductPage(BasePage):
         time.sleep(1)
         link = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         link.click()
-        BasePage.solve_quiz_and_get_code(self)
+        #BasePage.solve_quiz_and_get_code(self)
         time.sleep(1)
         print(product_name, self.browser.find_element(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_SUCCESS).text)
         print(product_cost, self.browser.find_element(*ProductPageLocators.BASKET_COST).text)

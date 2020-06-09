@@ -1,4 +1,4 @@
-import pytest
+import pytest, time
 from .pages.main_page import MainPage
 from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
@@ -70,3 +70,38 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.should_be_empty()
     page.should_be_empty_text()
 
+@pytest.mark.new_users
+class TestUserAddToBasketFromProductPage():
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        #self.product = ProductFactory(title = "Best book created by robot")
+        # создаем по апи
+        self.link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+
+        self.page = LoginPage(browser, self.link)
+        self.page.open()
+        email = str(time.time()) + "@fakemail.org"
+        password = "!QAZ@1qaz"
+        print(email,password)
+        self.page.register_new_user(email, password)
+        #yield
+        # после этого ключевого слова начинается teardown
+        # выполнится после каждого теста в классе
+        # удаляем те данные, которые мы создали 
+        #self.product.delete()
+    
+    #@pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"])
+    def test_user_cant_see_success_message(self, browser):
+        self.product_page = ProductPage(browser, self.link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+        self.product_page.open()
+        #product_page = ProductPage(browser, browser.current_url)
+        #product_page.should_not_see_success_message()
+        self.product_page.should_not_see_success_message()
+
+    #@pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"])
+    def test_user_can_add_product_to_basket(self, browser):
+        self.product_page = ProductPage(browser, self.link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+        self.product_page.open()                      # открываем страницу
+        #product_page = ProductPage(browser, browser.current_url)
+        #product_page.should_be_product_page()
+        self.product_page.should_be_product_page()
