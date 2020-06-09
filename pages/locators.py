@@ -18,11 +18,15 @@ class ProductPageLocators():
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRODUCT_NAME = (By.CSS_SELECTOR, "div.col-sm-6.product_main h1")
     PRODUCT_COST = (By.CSS_SELECTOR, "div.col-sm-6.product_main p.price_color")
-
-class BasketPageLocators():
     PRODUCT_ADD_TO_BASKET_SUCCESS = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon.alert-success:nth-child(1) strong")
     BASKET_COST = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon.alert-info.fade.in strong")
 
+class BasketPageLocators():
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    EMPTY_BASKET_MESSAGE_AFTER_DELETE_ITEMS = (By.CSS_SELECTOR, ".alertinner p:nth-child(1)")
+    ITEMS_TO_BAY = (By.CSS_SELECTOR, ".col-sm-6.h3")
+    
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group .btn.btn-default:nth-child(1)")
